@@ -1,0 +1,147 @@
+{
+    "name": "Hpatoio Bitly Client",
+    "apiVersion": "1.0",
+    "description": "Bitly Client",
+    "baseUrl": "https://api-ssl.bitly.com/",
+    "operations": {
+        "abstract.bitly": {
+            "parameters": {
+                "access_token": {
+                    "location": "query",
+                    "description": "Your Bitly access token",
+                    "required": true
+                }
+            }
+        },
+        "Shorten": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/shorten/",
+            "summary" : "Given a long URL, returns a bitly short URL.",
+            "parameters": {
+                "longUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A long URL to be shortened (example: http://iliveinperego.com/).",
+                    "required": true
+                },
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "refers to a preferred domain; either bit.ly, j.mp, or bitly.com, for users who do NOT have a custom short domain set up with bitly.",
+                    "required": false
+                }
+            }
+        },
+        "Highvalue": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/highvalue",
+            "summary" : "Returns a specified number of \"high-value\" bitly links that are popular across bitly at this particular moment.",
+            "parameters": {
+                "limit": {
+                    "location": "query",
+                    "type" : "integer",
+                    "description": "The maximum number of high-value links to return.",
+                    "required": true
+                }
+            }
+        },
+        "Search": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/search",
+            "summary" : "Search links receiving clicks across bitly by content, language, location, and more.",
+            "parameters": {
+                "limit": {
+                    "location": "query",
+                    "type" : "integer",
+                    "description": "The maximum number of links to return.",
+                    "required": false
+                },
+                "offset": {
+                    "location": "query",
+                    "type" : "integer",
+                    "description": "Which result to start with (defaults to 0)",
+                    "required": false
+                },
+                "query": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "String to query for",
+                    "required": false
+                },
+                "lang": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Favor results in this language (two letter ISO code).",
+                    "required": false
+                },
+                "cities": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Show links active in this city (ordered like country-state-city, e.g. us-il-chicago).",
+                    "required": false
+                },
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Restrict results to this web domain (like bitly.com).",
+                    "required": false
+                },
+                "full_domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Restrict results to this full web domain (like blog.bitly.com)",
+                    "required": false
+                },
+                "fields": {
+                    "location": "query",
+                    "type" : "array",
+                    "description": "which fields to return in the response (comma-separated). May be any of: domain, initial_epoch, h2, h3, site, lastindexed, keywords, last_indexed_epoch, title, initial, summaryText, content, score, summaryTitle, type, description, cities, lang, url, referrer, aggregate_link, lastseen, page, ogtitle, aggregate_link. By default, all will be returned",
+                    "required": false
+                }
+            }
+        },
+        "RealtimeBurstingPhrases": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/realtime/bursting_phrases",
+            "summary" : "Returns phrases that are receiving an uncharacteristically high volume of click traffic, and the individual links (hashes) driving traffic to pages containing these phrases"
+        },
+        "RealtimeHotPhrases": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/realtime/hot_phrases",
+            "summary" : "Returns phrases that are receiving a consistently high volume of click traffic, and the individual links (hashes) driving traffic to pages containing these phrases"
+        },
+        "RealtimeClickrate": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/realtime/clickrate",
+            "summary" : "Returns the click rate for content containing a specified phrase",
+            "parameters": {
+                "phrase": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "The phrase for which you'd like to get the click rate",
+                    "required": true
+                }
+            }
+        },
+        "LinkInfo": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/info",
+            "summary" : "Returns metadata about a single bitly link",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        }
+    }
+}
