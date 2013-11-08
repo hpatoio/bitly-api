@@ -1,6 +1,9 @@
 {
-    "name": "hpatoio/bitly-client",
+    "name": "hpatoio/BitlyApi",
+    "type": "library",
     "description": "PHP Library based on Guzzle to consume Bit.ly API",
+    "keywords": ["Bitly", "api", "guzzle"],
+    "homepage": "http://www.iliveinperego.com/",
     "require": {
         "guzzle/guzzle": "3.7.*"
     },
@@ -10,5 +13,10 @@
             "name": "Simone Fumagalli",
             "email": "simone@iliveinperego.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "Bitly\\Api\\": "src/"
+        }
+    },
 }
