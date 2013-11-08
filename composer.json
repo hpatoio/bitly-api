@@ -1,0 +1,14 @@
+{
+    "name": "hpatoio/bitly-client",
+    "description": "PHP Library based on Guzzle to consume Bit.ly API",
+    "require": {
+        "guzzle/guzzle": "3.7.*"
+    },
+    "license": "CC-BY-SA-3.0",
+    "authors": [
+        {
+            "name": "Simone Fumagalli",
+            "email": "simone@iliveinperego.com"
+        }
+    ]
+}
