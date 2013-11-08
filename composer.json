@@ -1,5 +1,5 @@
 {
-    "name": "hpatoio/BitlyApi",
+    "name": "hpatoio/bitly-api",
     "type": "library",
     "description": "PHP Library based on Guzzle to consume Bit.ly API",
     "keywords": ["Bitly", "api", "guzzle"],
@@ -18,5 +18,5 @@
         "psr-0": {
             "Bitly\\Api\\": "src/"
         }
-    },
+    }
 }
