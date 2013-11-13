@@ -22,7 +22,7 @@ class TokenAuthPlugin implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array('command.before_prepare' => array('onRequestCreate', 255));
+        return array('command.before_prepare' => array('onBeforePrepare', 255));
     }
 
     /**
@@ -30,7 +30,7 @@ class TokenAuthPlugin implements EventSubscriberInterface
      *
      * @param Event $event
      */
-    public function onRequestCreate(Event $event)
+    public function onBeforePrepare(Event $event)
     {
         $event['command']->set('access_token', $this->token);
     }
