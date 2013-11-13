@@ -9,19 +9,17 @@ use Bitly\Api\Subscribers\ArrayAggregatorSubscriber;
 
 class BitlyClient extends Client
 {
+    
+   public function __construct($access_token) {
 
-   public static function factory($config = array())
-    {
-
-        $client = new self();
-
+        parent::__construct();
+          
  	// Set the service description
-        $client->setDescription(ServiceDescription::factory(__DIR__.'/Resources/bitly.json'));
+        $this->setDescription(ServiceDescription::factory(__DIR__.'/Resources/bitly.json'));
 
-	$client->addSubscriber(new TokenAuthPlugin($config['access_token']));
-	$client->addSubscriber(new ArrayAggregatorSubscriber());
+	$this->addSubscriber(new TokenAuthPlugin($access_token));
+	$this->addSubscriber(new ArrayAggregatorSubscriber());
 
-        return $client;
     }
 
 }
