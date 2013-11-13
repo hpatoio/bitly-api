@@ -21,7 +21,7 @@ class ArrayAggregatorSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * Add token
+     * Change aggregator
      *
      * @param Event $event
      */
