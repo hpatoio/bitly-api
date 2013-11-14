@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/hpatoio/bitly-api.png?branch=master)](https://travis-ci.org/hpatoio/bitly-api)
+============
+
+
 BitlyApi
 ============
 
