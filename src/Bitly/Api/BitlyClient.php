@@ -6,6 +6,7 @@ use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Bitly\Api\Plugin\TokenAuthPlugin;
 use Bitly\Api\Subscribers\ArrayAggregatorSubscriber;
+use Bitly\Api\Subscribers\ResponseStandardizationSubscriber;
 
 class BitlyClient extends Client
 {
@@ -19,6 +20,7 @@ class BitlyClient extends Client
 
 	$this->addSubscriber(new TokenAuthPlugin($access_token));
 	$this->addSubscriber(new ArrayAggregatorSubscriber());
+	$this->addSubscriber(new ResponseStandardizationSubscriber());
 
     }
 
