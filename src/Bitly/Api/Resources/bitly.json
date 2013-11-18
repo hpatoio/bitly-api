@@ -142,6 +142,96 @@
                     "required": true
                 }
             }
+        },
+        "LinkContent": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/content",
+            "summary" : "Returns the “main article” from the linked page, as determined by the content extractor, in either HTML or plain text format",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                },
+                "content_type": {
+                    "location": "query",
+                    "enum": ["html", "text"],
+                    "description": "specifies whether to return the content as html or plain text (default: html).",
+                    "required": false
+                }
+            }
+        },
+        "LinkCategory": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/category",
+            "summary" : "Returns the detected categories for a document, in descending order of confidence",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkSocial": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/social",
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkSocial": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/social",
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkLocation": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/location",
+            "summary" : "Returns the significant locations for the bitly link or None if locations do not exist. Note that locations are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that location data for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkLanguage": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/language",
+            "summary" : "Returns the significant languages for the bitly link. Note that languages are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that language data for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
         }
     }
 }
