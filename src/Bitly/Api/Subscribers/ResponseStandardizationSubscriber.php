@@ -23,13 +23,13 @@ class ResponseStandardizationSubscriber implements EventSubscriberInterface
      */
     public function StandardizeResponse(Event $event)
     {
-        
+
         $full_json_response = $event['response']->json();
-        
+
         if ($full_json_response['status_code'] === 200)
             return $event['response']->setBody(json_encode($full_json_response['data']));
-        
+
         $event['response']->setStatus($full_json_response['status_code'], $full_json_response['status_txt']);
-        
+
     }
 }

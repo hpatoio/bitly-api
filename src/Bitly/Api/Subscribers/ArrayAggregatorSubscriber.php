@@ -10,7 +10,7 @@ use Guzzle\Http\QueryAggregator\CommaAggregator;
  *  Change array aggregation method.
  *  Docs: http://docs.guzzlephp.org/en/latest/http-client/request.html#query-string-parameters
  *  Info: https://github.com/guzzle/guzzle/issues/313
- * 
+ *
  */
 class ArrayAggregatorSubscriber implements EventSubscriberInterface
 {
