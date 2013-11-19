@@ -35,17 +35,9 @@ class FeatureContext extends BehatContext
     }
     
     /**
-     * @Transform /^(\d+)$/
-     */
-    public function castStringToNumber($string)
-    {
-        return intval($string);
-    }
-    
-    /**
      * @Given /^the following parameters:$/
      */
-    public function pushUsers(TableNode $parametersTable)
+    public function pushParams(TableNode $parametersTable)
     {
         foreach ($parametersTable->getHash() as $parameterHash) {
             if ($parameterHash['casting'])
@@ -68,7 +60,7 @@ class FeatureContext extends BehatContext
      */
     public function theResponseHasKey($key)
     {
-        $data = $this->response['data'];
+        $data = $this->response;
 
         if (!empty($data)) {
             if (!isset($data[$key]  )) {
