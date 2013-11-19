@@ -2,8 +2,7 @@
 
 PHP Library based on Guzzle to consume Bit.ly API
 
-Installation
-============
+## Installation
 
 The recommended way to install this bundle is through composer:
 
@@ -14,9 +13,7 @@ The recommended way to install this bundle is through composer:
     }
 }
 ```
-
 ## Usage
-
 ```php
 <?php
 
@@ -31,7 +28,6 @@ $response = $my_bitly->Highvalue(array("limit" => 3));
 print_r($response);
 
 ```
-
 ## Methods names
 
 To get the method name remove "v3" from the API url and camelize the other words removing the slashes.
@@ -42,9 +38,10 @@ Examples:
 * /v3/realtime/hot_phrases -> RealtimeHot_phrases
 * /v3/link/content -> LinkContent
 
-
 ## Available methods
-
 At the moment the library supports:
 
 - [bitly Data APIs](http://dev.bitly.com/data_apis.html)
+
+## Integrations
+A Symfony2 bundle that integrate this library is available [here](https://github.com/hpatoio/BitlyBundle)
