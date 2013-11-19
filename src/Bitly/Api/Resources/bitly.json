@@ -1,7 +1,7 @@
 {
     "name": "Hpatoio Bitly Client",
     "apiVersion": "1.0",
-    "description": "Bitly Client",
+    "description": "Guzzle service description of Bitly API",
     "baseUrl": "https://api-ssl.bitly.com/",
     "operations": {
         "abstract.bitly": {
@@ -10,26 +10,6 @@
                     "location": "query",
                     "description": "Your Bitly access token",
                     "required": true
-                }
-            }
-        },
-        "Shorten": {
-            "extends" : "abstract.bitly",
-            "httpMethod": "GET",
-            "uri": "v3/shorten/",
-            "summary" : "Given a long URL, returns a bitly short URL.",
-            "parameters": {
-                "longUrl": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A long URL to be shortened (example: http://iliveinperego.com/).",
-                    "required": true
-                },
-                "domain": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "refers to a preferred domain; either bit.ly, j.mp, or bitly.com, for users who do NOT have a custom short domain set up with bitly.",
-                    "required": false
                 }
             }
         },
@@ -103,13 +83,13 @@
                 }
             }
         },
-        "RealtimeBurstingPhrases": {
+        "RealtimeBursting_phrases": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
             "uri": "/v3/realtime/bursting_phrases",
             "summary" : "Returns phrases that are receiving an uncharacteristically high volume of click traffic, and the individual links (hashes) driving traffic to pages containing these phrases"
         },
-        "RealtimeHotPhrases": {
+        "RealtimeHot_phrases": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
             "uri": "/v3/realtime/hot_phrases",
@@ -139,6 +119,298 @@
                     "location": "query",
                     "type" : "string",
                     "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkContent": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/content",
+            "summary" : "Returns the “main article” from the linked page, as determined by the content extractor, in either HTML or plain text format",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                },
+                "content_type": {
+                    "location": "query",
+                    "enum": ["html", "text"],
+                    "description": "specifies whether to return the content as html or plain text (default: html).",
+                    "required": false
+                }
+            }
+        },
+        "LinkCategory": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/category",
+            "summary" : "Returns the detected categories for a document, in descending order of confidence",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkSocial": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/social",
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkSocial": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/social",
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkLocation": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/location",
+            "summary" : "Returns the significant locations for the bitly link or None if locations do not exist. Note that locations are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that location data for that link does not exist.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "Expand": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/expand",
+            "summary" : "Given a bitly URL or hash (or multiple), returns the target (long) URL.",
+            "parameters": {
+                "shortUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Refers to one or more bitly links. e.g.: http://bit.ly/1RmnUT or http://j.mp/1RmnUT.",
+                    "required": false
+                },
+                "hash": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Refers to one or more bitly hashes. e.g.: 2bYgqR or a-custom-name.",
+                    "required": false
+                }
+            }
+        },
+        "Info": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/info",
+            "summary" : "This is used to return the page title for a given bitly link.",
+            "parameters": {
+                "hash": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Refers to one or more bitly hashes. e.g.: 2bYgqR or a-custom-name.",
+                    "required": false
+                },
+                "shortUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Refers to one or more bitly links e.g.: http://bit.ly/1RmnUT or http://j.mp/1RmnUT.",
+                    "required": false
+                },
+                "expand_user": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional true|false - include extra user info in response.",
+                    "required": false
+                }
+            }
+        },
+        "LinkLookup": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/lookup",
+            "summary" : "This is used to query for a bitly link based on a long URL.",
+            "parameters": {
+                "url": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "One or more long URLs to lookup.",
+                    "required": false
+                }
+            }
+        },
+        "LinkLookup": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "/v3/link/lookup",
+            "summary" : "This is used to query for a bitly link based on a long URL.",
+            "parameters": {
+                "url": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "One or more long URLs to lookup.",
+                    "required": false
+                }
+            }
+        },
+        "Shorten": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/shorten/",
+            "summary" : "Given a long URL, returns a bitly short URL.",
+            "parameters": {
+                "longUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A long URL to be shortened (example: http://iliveinperego.com/).",
+                    "required": true
+                },
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "refers to a preferred domain; either bit.ly, j.mp, or bitly.com, for users who do NOT have a custom short domain set up with bitly.",
+                    "required": false
+                }
+            }
+        },
+        "UserLink_edit": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/user/link_edit/",
+            "summary" : "Changes link metadata in a user's history.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "The bitly link to be edited",
+                    "required": true
+                },
+                "title": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - The title of this bitmark.",
+                    "required": false
+                },
+                "note": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - A description of, or note about, this bitmark.",
+                    "required": false
+                },
+                "private": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "Optional - Boolean true or false indicating privacy setting (defaults to user-level setting).",
+                    "required": false
+                },
+                "user_ts": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "Optional - Timestamp as an integer epoch.",
+                    "required": false
+                },
+                "archived": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "Optional - Boolean true or false indicating whether or not link is to be archived.",
+                    "required": false
+                },
+                "edit": {
+                    "location": "query",
+                    "type" : "array",
+                    "description": "A comma separated string of fields to be edited. ie: to edit the note field you also need to pass edit=note.",
+                    "required": false
+                }
+            }
+        },
+        "UserLink_lookup": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/user/link_lookup",
+            "summary" : "This is used to query for a bitly link shortened by the authenticated user based on a long URL.",
+            "parameters": {
+                "longUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "One or more long URLs to lookup.",
+                    "required": true
+                }
+            }
+        },
+        "UserLink_save": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/user/link_save",
+            "summary" : "Saves a link as a bitmark in a user's history, with optional pre-set metadata. (Also returns a short URL for that link.)",
+            "parameters": {
+                "longUrl": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "The URL to be saved as a bitmark.",
+                    "required": true
+                },
+                "title": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - The title of this bitmark.",
+                    "required": false
+                },
+                "note": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - A description of, or note about, this bitmark.",
+                    "required": false
+                },
+                "private": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "Optional - Boolean true or false indicating privacy setting (defaults to user-level setting).",
+                    "required": false
+                },
+                "user_ts": {
+                    "location": "query",
+                    "type" : "integer",
+                    "description": "Optional - Timestamp as an integer epoch.",
+                    "required": false
+                }
+            }
+        },
+        "UserSave_custom_domain_keyword": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/user/save_custom_domain_keyword",
+            "summary" : "Save a custom keyword for a custom short domain. This endpoint is only available to paid customers.",
+            "parameters": {
+                "keyword_link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "The short domain and keyword combination",
+                    "required": true
+                },
+                "target_link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "The bitly short URL the specified keyword will map to",
                     "required": true
                 }
             }
