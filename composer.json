@@ -1,7 +1,7 @@
 {
     "name": "hpatoio/bitly-api",
     "type": "library",
-    "description": "PHP Library based on Guzzle to consume Bit.ly API",
+    "description": "PHP Library based on Guzzle to consume Bit.ly API | Not all API method are mapped yes",
     "keywords": ["Bitly", "api", "guzzle"],
     "homepage": "http://www.iliveinperego.com/",
     "license": "CC-BY-SA-3.0",
