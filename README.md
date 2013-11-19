@@ -34,13 +34,13 @@ print_r($response);
 
 ## Methods names
 
-To get the method name remove "v3" from the API url and camelize all the other words removing the slashes.
+To get the method name remove "v3" from the API url and camelize the other words removing the slashes.
 
-Example:
+Examples:
 
-/v3/highvalue -> highvalue
-/v3/realtime/hot_phrases -> RealtimeHot_phrases
-/v3/link/content -> LinkContent
+* /v3/highvalue -> Highvalue
+* /v3/realtime/hot_phrases -> RealtimeHot_phrases
+* /v3/link/content -> LinkContent
 
 
 ## Available methods
