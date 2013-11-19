@@ -32,4 +32,19 @@ print_r($response);
 
 ```
 
+## Methods names
 
+To get the method name remove "v3" from the API url and camelize all the other words removing the slashes.
+
+Example:
+
+/v3/highvalue -> highvalue
+/v3/realtime/hot_phrases -> RealtimeHot_phrases
+/v3/link/content -> LinkContent
+
+
+## Available methods
+
+At the moment the library supports:
+
+- [bitly Data APIs](http://dev.bitly.com/data_apis.html)
