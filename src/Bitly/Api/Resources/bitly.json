@@ -1,7 +1,7 @@
 {
     "name": "Hpatoio Bitly Client",
     "apiVersion": "1.0",
-    "description": "Bitly Client",
+    "description": "Guzzle service description of Bitly API",
     "baseUrl": "https://api-ssl.bitly.com/",
     "operations": {
         "abstract.bitly": {
@@ -103,13 +103,13 @@
                 }
             }
         },
-        "RealtimeBurstingPhrases": {
+        "RealtimeBursting_phrases": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
             "uri": "/v3/realtime/bursting_phrases",
             "summary" : "Returns phrases that are receiving an uncharacteristically high volume of click traffic, and the individual links (hashes) driving traffic to pages containing these phrases"
         },
-        "RealtimeHotPhrases": {
+        "RealtimeHot_phrases": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
             "uri": "/v3/realtime/hot_phrases",
