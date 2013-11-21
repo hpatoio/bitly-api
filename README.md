@@ -1,4 +1,10 @@
-# BitlyApi [![Build Status](https://travis-ci.org/hpatoio/bitly-api.png?branch=master)](https://travis-ci.org/hpatoio/bitly-api) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hpatoio/bitly-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# BitlyApi 
+
+[![Build Status](https://travis-ci.org/hpatoio/bitly-api.png?branch=master)](https://travis-ci.org/hpatoio/bitly-api) 
+[![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
+[![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hpatoio/bitly-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 
 PHP Library based on Guzzle to consume Bit.ly API
 
