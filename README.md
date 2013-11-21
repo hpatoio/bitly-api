@@ -4,15 +4,41 @@ PHP Library based on Guzzle to consume Bit.ly API
 
 ## Installation
 
-The recommended way to install this bundle is through composer:
+The recommended way to install this bundle is through Composer.
+For information about Composer and how to install in [look here](http://getcomposer.org/doc/00-intro.md).
 
+
+#### New project 
+
+From command line run 
+
+
+```shell
+./composer create-project hpatoio/bitly-api your_prj_dir dev-master
+```
+
+#### Existing project
+
+Move into your project directory and run
+
+```shell
+./composer require hpatoio/bitly-api
+```
+or add to your `composer.json`
 ```json
 {
+    ...
     "require": {
+        ...
         "hpatoio/bitly-api": "dev-master"
     }
 }
 ```
+and run 
+```shell
+./composer update
+```
+
 ## Usage
 ```php
 <?php
@@ -21,7 +47,7 @@ The recommended way to install this bundle is through composer:
 require_once 'vendor/autoload.php';
 
 # To find your bitly access token see here https://bitly.com/a/oauth_apps
-$my_bitly = new \Bitly\Api\BitlyClient("insert_here_your_bitly_api_key");
+$my_bitly = new \Bitly\Api\BitlyClient("insert_here_your_bitly_api_access_token");
 
 $response = $my_bitly->Highvalue(array("limit" => 3));
 
@@ -39,9 +65,10 @@ Examples:
 * /v3/link/content -> LinkContent
 
 ## Available methods
-At the moment the library supports:
+At the moment the library supports these APIs:
 
 - [bitly Data APIs](http://dev.bitly.com/data_apis.html)
+- [Links](http://dev.bitly.com/links.html)
 
 ## Integrations
 A Symfony2 bundle that integrate this library is available [here](https://github.com/hpatoio/BitlyBundle)
