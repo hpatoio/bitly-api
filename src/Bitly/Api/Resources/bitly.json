@@ -259,20 +259,6 @@
                 }
             }
         },
-        "LinkLookup": {
-            "extends" : "abstract.bitly",
-            "httpMethod": "GET",
-            "uri": "/v3/link/lookup",
-            "summary" : "This is used to query for a bitly link based on a long URL.",
-            "parameters": {
-                "url": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "One or more long URLs to lookup.",
-                    "required": false
-                }
-            }
-        },
         "Shorten": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
@@ -411,6 +397,364 @@
                     "location": "query",
                     "type" : "string",
                     "description": "The bitly short URL the specified keyword will map to",
+                    "required": true
+                }
+            }
+        },
+        "abstract.bitly.link": {
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                },
+                "unit": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "minute, hour, day, week or month, default: day | Note: when unit is minute the maximum value for units is 60.",
+                    "required": true
+                },
+                "units": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "an integer representing the time units to query data for. Pass -1 to return all units of time.",
+                    "required": true
+                },
+                "timezone": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "An integer hour offset from UTC (-14 to 14), or a timezone string default: America/New_York.",
+                    "required": true
+                },
+                "limit": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "1 to 1000 (default=100).",
+                    "required": false
+                },
+                "unit_reference_ts": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "An epoch timestamp, indicating the most recent time for which to pull metrics, default: now. Note: the value of unit_reference_ts rounds to the nearest unit. Note: historical data is stored hourly beyond the most recent 60 minutes. If a unit_reference_ts is specified, unit cannot be minute.",
+                    "required": true
+                }
+            }
+        },
+        "LinkClicks": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/clicks",
+            "summary" : "Returns the number of clicks on a single bitly link.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "True or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "LinkCountries": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/countries",
+            "summary" : "Returns metrics about the countries referring click traffic to a single bitly link."
+        },
+        "abstract.bitly.link_encoders": {
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                },
+                "my_network": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "true or false - restrict to my network.",
+                    "required": false
+                },
+                "subaccounts": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "Only available to enterprise accounts. true or false - restrict to this enterprise account and its subaccounts",
+                    "required": false
+                },
+                "limit": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "Integer in the range of 1 to 25 that specifies the number of records to return (default: 10).",
+                    "required": false
+                },
+                "expand_user": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false - include display names of encoders.",
+                    "required": false
+                }
+            }
+        }, 
+        "LinkEncoders": {
+            "extends" : "abstract.bitly.link_encoders",
+            "httpMethod": "GET",
+            "uri": "v3/link/encoders",
+            "summary" : "Returns users who have encoded this link (optionally only those in the requesting user's social graph)."
+        },
+        "LinkEncoders_by_count": {
+            "extends" : "abstract.bitly.link_encoders",
+            "httpMethod": "GET",
+            "uri": "v3/link/encoders_by_count",
+            "summary" : "Returns users who have encoded this link (optionally only those in the requesting user's social graph), sorted by the number of clicks on each encoding user's link. Note: The response will only contain users whose links have gotten at least one click, and will not contain any users whose links are private."
+        },
+        "LinkEncoders_count": {
+            "extends" : "abstract.bitly",
+            "httpMethod": "GET",
+            "uri": "v3/link/encoders_count",
+            "summary" : "Returns the number of users who have shortened (encoded) a single bitly link.",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
+        "LinkReferrers": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/referrers",
+            "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
+        },
+        "LinkReferrers_by_domain": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/referrers_by_domain",
+            "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
+        },
+        "LinkReferring_domains": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/referring_domains",
+            "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
+        },
+        "LinkShares": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "v3/link/referring_domains",
+            "summary" : "Returns metrics about the pages referring click traffic to a single bitly link.",
+             "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "abstract.bitly.user": {
+            "parameters": {
+                "unit": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "minute, hour, day, week or month, default: day | Note: when unit is minute the maximum value for units is 60.",
+                    "required": true
+                },
+                "units": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "an integer representing the time units to query data for. Pass -1 to return all units of time.",
+                    "required": true
+                },
+                "timezone": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "An integer hour offset from UTC (-14 to 14), or a timezone string default: America/New_York.",
+                    "required": true
+                },
+                "limit": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "1 to 1000 (default=100).",
+                    "required": false
+                },
+                "unit_reference_ts": {
+                    "location": "query",
+                    "type" : "number",
+                    "description": "An epoch timestamp, indicating the most recent time for which to pull metrics, default: now. Note: the value of unit_reference_ts rounds to the nearest unit. Note: historical data is stored hourly beyond the most recent 60 minutes. If a unit_reference_ts is specified, unit cannot be minute.",
+                    "required": true
+                }
+            }
+        },
+        "UserClicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/clicks",
+            "summary" : "Returns the aggregate number of clicks on all of the authenticated user's bitly links.",
+             "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserCountries": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/countries",
+            "summary" : "Returns aggregate metrics about the countries referring click traffic to all of the authenticated user's bitly links.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_earned_by_clicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_clicks",
+            "summary" : "Returns the top links to your tracking domain (or domains) created by users not associated with your account, ordered by clicks. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "parameters": {
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A tracking domain as returned from /v3/user/tracking_domain_list.",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_earned_by_shortens": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the top links to your tracking domain (or domains) created by users not associated with your account, ordered by shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "parameters": {
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A tracking domain as returned from /v3/user/tracking_domain_list.",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_links": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+        },
+        "UserPopular_owned_by_clicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "parameters": {
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A tracking domain as returned from /v3/user/tracking_domain_list.",
+                    "required": true
+                },
+                "subaccount": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Restrict to links created by this subaccount (may be specified multiple times).",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_owned_by_clicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by number of shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "parameters": {
+                "domain": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A tracking domain as returned from /v3/user/tracking_domain_list.",
+                    "required": true
+                },
+                "subaccount": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Restrict to links created by this subaccount (may be specified multiple times).",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_owned_by_clicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by number of shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserPopular_owned_by_clicks": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/referring_domains",
+            "summary" : "Returns aggregate metrics about the domains referring click traffic to all of the authenticated user's bitly links.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserShare_counts": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/share_counts",
+            "summary" : "Returns the number of shares by the authenticated user in a given time period.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserShare_counts_by_share_type": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/share_counts",
+            "summary" : "Returns the number of shares by the authenticated user, broken down by share type (ie: twitter, facebook, email) in a given time period.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
+                    "required": true
+                }
+            }
+        },
+        "UserShorten_counts": {
+            "extends" : "abstract.bitly.user",
+            "httpMethod": "GET",
+            "uri": "v3/user/shorten_counts",
+            "summary" : "Returns the number of links shortened (encoded) in a given time period by the authenticated user.",
+            "parameters": {
+                "rollup": {
+                    "location": "query",
+                    "type" : "boolean",
+                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
             }
