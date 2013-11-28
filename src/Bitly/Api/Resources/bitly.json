@@ -13,10 +13,21 @@
                 }
             }
         },
+        "abstract.bitly.link": {
+            "extends" : "abstract.bitly",
+            "parameters": {
+                "link": {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "A bitly link.",
+                    "required": true
+                }
+            }
+        },
         "Highvalue": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/highvalue",
+            "uri": "/v3/highvalue",
             "summary" : "Returns a specified number of \"high-value\" bitly links that are popular across bitly at this particular moment.",
             "parameters": {
                 "limit": {
@@ -30,7 +41,7 @@
         "Search": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/search",
+            "uri": "/v3/search",
             "summary" : "Search links receiving clicks across bitly by content, language, location, and more.",
             "parameters": {
                 "limit": {
@@ -110,31 +121,17 @@
             }
         },
         "LinkInfo": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/info",
-            "summary" : "Returns metadata about a single bitly link",
-            "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                }
-            }
+            "summary" : "Returns metadata about a single bitly link"
         },
         "LinkContent": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/content",
             "summary" : "Returns the “main article” from the linked page, as determined by the content extractor, in either HTML or plain text format",
             "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                },
                 "content_type": {
                     "location": "query",
                     "enum": ["html", "text"],
@@ -144,60 +141,34 @@
             }
         },
         "LinkCategory": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/category",
-            "summary" : "Returns the detected categories for a document, in descending order of confidence",
-            "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                }
-            }
+            "summary" : "Returns the detected categories for a document, in descending order of confidence"
         },
         "LinkSocial": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/social",
-            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
-            "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                }
-            }
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist."
         },
         "LinkSocial": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/social",
-            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist.",
-            "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                }
-            }
+            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist."
         },
         "LinkLocation": {
-            "extends" : "abstract.bitly",
+            "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
             "uri": "/v3/link/location",
-            "summary" : "Returns the significant locations for the bitly link or None if locations do not exist. Note that locations are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that location data for that link does not exist.",
-            "parameters": {
-                "link": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "A bitly link.",
-                    "required": true
-                }
-            }
+            "summary" : "Returns the significant locations for the bitly link or None if locations do not exist. Note that locations are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that location data for that link does not exist."
+        },
+        "LinkLanguage": {
+            "extends" : "abstract.bitly.link",
+            "httpMethod": "GET",
+            "uri": "/v3/link/language",
+            "summary" : "Returns the significant languages for the bitly link. Note that languages are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible that language data for that link does not exist."
         },
         "Expand": {
             "extends" : "abstract.bitly",
@@ -262,7 +233,7 @@
         "Shorten": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/shorten/",
+            "uri": "/v3/shorten/",
             "summary" : "Given a long URL, returns a bitly short URL.",
             "parameters": {
                 "longUrl": {
@@ -282,7 +253,7 @@
         "UserLink_edit": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/user/link_edit/",
+            "uri": "/v3/user/link_edit/",
             "summary" : "Changes link metadata in a user's history.",
             "parameters": {
                 "link": {
@@ -305,7 +276,7 @@
                 },
                 "private": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "Optional - Boolean true or false indicating privacy setting (defaults to user-level setting).",
                     "required": false
                 },
@@ -317,7 +288,7 @@
                 },
                 "archived": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "Optional - Boolean true or false indicating whether or not link is to be archived.",
                     "required": false
                 },
@@ -332,10 +303,10 @@
         "UserLink_lookup": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/user/link_lookup",
+            "uri": "/v3/user/link_lookup",
             "summary" : "This is used to query for a bitly link shortened by the authenticated user based on a long URL.",
             "parameters": {
-                "longUrl": {
+                "url": {
                     "location": "query",
                     "type" : "string",
                     "description": "One or more long URLs to lookup.",
@@ -346,7 +317,7 @@
         "UserLink_save": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/user/link_save",
+            "uri": "/v3/user/link_save",
             "summary" : "Saves a link as a bitmark in a user's history, with optional pre-set metadata. (Also returns a short URL for that link.)",
             "parameters": {
                 "longUrl": {
@@ -369,7 +340,7 @@
                 },
                 "private": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "Optional - Boolean true or false indicating privacy setting (defaults to user-level setting).",
                     "required": false
                 },
@@ -384,7 +355,7 @@
         "UserSave_custom_domain_keyword": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/user/save_custom_domain_keyword",
+            "uri": "/v3/user/save_custom_domain_keyword",
             "summary" : "Save a custom keyword for a custom short domain. This endpoint is only available to paid customers.",
             "parameters": {
                 "keyword_link": {
@@ -401,7 +372,7 @@
                 }
             }
         },
-        "abstract.bitly.link": {
+        "abstract.bitly.link_metrics": {
             "parameters": {
                 "link": {
                     "location": "query",
@@ -437,19 +408,19 @@
                     "location": "query",
                     "type" : "number",
                     "description": "An epoch timestamp, indicating the most recent time for which to pull metrics, default: now. Note: the value of unit_reference_ts rounds to the nearest unit. Note: historical data is stored hourly beyond the most recent 60 minutes. If a unit_reference_ts is specified, unit cannot be minute.",
-                    "required": true
+                    "required": false
                 }
             }
         },
         "LinkClicks": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/clicks",
+            "uri": "/v3/link/clicks",
             "summary" : "Returns the number of clicks on a single bitly link.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "True or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -458,10 +429,11 @@
         "LinkCountries": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/countries",
+            "uri": "/v3/link/countries",
             "summary" : "Returns metrics about the countries referring click traffic to a single bitly link."
         },
         "abstract.bitly.link_encoders": {
+            "extends" : "abstract.bitly",
             "parameters": {
                 "link": {
                     "location": "query",
@@ -477,7 +449,7 @@
                 },
                 "subaccounts": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "Only available to enterprise accounts. true or false - restrict to this enterprise account and its subaccounts",
                     "required": false
                 },
@@ -489,7 +461,7 @@
                 },
                 "expand_user": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false - include display names of encoders.",
                     "required": false
                 }
@@ -498,19 +470,19 @@
         "LinkEncoders": {
             "extends" : "abstract.bitly.link_encoders",
             "httpMethod": "GET",
-            "uri": "v3/link/encoders",
+            "uri": "/v3/link/encoders",
             "summary" : "Returns users who have encoded this link (optionally only those in the requesting user's social graph)."
         },
         "LinkEncoders_by_count": {
             "extends" : "abstract.bitly.link_encoders",
             "httpMethod": "GET",
-            "uri": "v3/link/encoders_by_count",
+            "uri": "/v3/link/encoders_by_count",
             "summary" : "Returns users who have encoded this link (optionally only those in the requesting user's social graph), sorted by the number of clicks on each encoding user's link. Note: The response will only contain users whose links have gotten at least one click, and will not contain any users whose links are private."
         },
         "LinkEncoders_count": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "v3/link/encoders_count",
+            "uri": "/v3/link/encoders_count",
             "summary" : "Returns the number of users who have shortened (encoded) a single bitly link.",
             "parameters": {
                 "link": {
@@ -524,30 +496,30 @@
         "LinkReferrers": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/referrers",
+            "uri": "/v3/link/referrers",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
         },
         "LinkReferrers_by_domain": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/referrers_by_domain",
+            "uri": "/v3/link/referrers_by_domain",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
         },
         "LinkReferring_domains": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/referring_domains",
+            "uri": "/v3/link/referring_domains",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
         },
         "LinkShares": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "v3/link/referring_domains",
+            "uri": "/v3/link/referring_domains",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link.",
              "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -590,12 +562,12 @@
         "UserClicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/clicks",
+            "uri": "/v3/user/clicks",
             "summary" : "Returns the aggregate number of clicks on all of the authenticated user's bitly links.",
              "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -604,12 +576,12 @@
         "UserCountries": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/countries",
+            "uri": "/v3/user/countries",
             "summary" : "Returns aggregate metrics about the countries referring click traffic to all of the authenticated user's bitly links.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -618,7 +590,7 @@
         "UserPopular_earned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_clicks",
+            "uri": "/v3/user/popular_earned_by_clicks",
             "summary" : "Returns the top links to your tracking domain (or domains) created by users not associated with your account, ordered by clicks. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
             "parameters": {
                 "domain": {
@@ -632,7 +604,7 @@
         "UserPopular_earned_by_shortens": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_shortens",
+            "uri": "/v3/user/popular_earned_by_shortens",
             "summary" : "Returns the top links to your tracking domain (or domains) created by users not associated with your account, ordered by shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
             "parameters": {
                 "domain": {
@@ -646,13 +618,13 @@
         "UserPopular_links": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_shortens",
-            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "uri": "/v3/user/popular_earned_by_shortens",
+            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers."
         },
         "UserPopular_owned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_shortens",
+            "uri": "/v3/user/popular_earned_by_shortens",
             "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
             "parameters": {
                 "domain": {
@@ -672,7 +644,7 @@
         "UserPopular_owned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_shortens",
+            "uri": "/v3/user/popular_earned_by_shortens",
             "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by number of shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
             "parameters": {
                 "domain": {
@@ -692,12 +664,12 @@
         "UserPopular_owned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/popular_earned_by_shortens",
+            "uri": "/v3/user/popular_earned_by_shortens",
             "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by number of shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -706,12 +678,12 @@
         "UserPopular_owned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/referring_domains",
+            "uri": "/v3/user/referring_domains",
             "summary" : "Returns aggregate metrics about the domains referring click traffic to all of the authenticated user's bitly links.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -720,12 +692,12 @@
         "UserShare_counts": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/share_counts",
+            "uri": "/v3/user/share_counts",
             "summary" : "Returns the number of shares by the authenticated user in a given time period.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -734,12 +706,12 @@
         "UserShare_counts_by_share_type": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/share_counts",
+            "uri": "/v3/user/share_counts",
             "summary" : "Returns the number of shares by the authenticated user, broken down by share type (ie: twitter, facebook, email) in a given time period.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
@@ -748,12 +720,12 @@
         "UserShorten_counts": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "v3/user/shorten_counts",
+            "uri": "/v3/user/shorten_counts",
             "summary" : "Returns the number of links shortened (encoded) in a given time period by the authenticated user.",
             "parameters": {
                 "rollup": {
                     "location": "query",
-                    "type" : "boolean",
+                    "type" : "string",
                     "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
                     "required": true
                 }
