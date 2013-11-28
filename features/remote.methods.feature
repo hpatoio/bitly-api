@@ -109,6 +109,15 @@ Feature: Test requests to Bitly API
       | expand    | true          |           |
     When I request "Info"
     Then the response has a "info" key
+  Scenario: Call link edit
+    Given the following parameters:
+      | name      | value                        | casting   |
+      | link      | http://bit.ly/11doabL        |           |
+      | edit      | note,note                    | array     |
+      | title     | Set From Behat               |           |
+      | note      | Set From Behat               |           |
+    When I request "UserLink_edit"
+    Then the response has a "link_edit" key
   Scenario: Call lookup
     Given the following parameters:
       | name      | value                        | casting   |
@@ -205,5 +214,5 @@ Feature: Test requests to Bitly API
       | units     | 1                            |           |
       | rollup    | true                         |           |
       | timezone  | 0                            |           |
-    When I request "shares"
-    Then the response has a "total_shares" key
+    When I request "LinkShares"
+    Then the response has a "shares" key
