@@ -233,7 +233,7 @@
         "Shorten": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "/v3/shorten/",
+            "uri": "/v3/shorten",
             "summary" : "Given a long URL, returns a bitly short URL.",
             "parameters": {
                 "longUrl": {
@@ -253,7 +253,7 @@
         "UserLink_edit": {
             "extends" : "abstract.bitly",
             "httpMethod": "GET",
-            "uri": "/v3/user/link_edit/",
+            "uri": "/v3/user/link_edit",
             "summary" : "Changes link metadata in a user's history.",
             "parameters": {
                 "link": {
