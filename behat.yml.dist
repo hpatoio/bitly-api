@@ -1,0 +1,7 @@
+# This file is part of the bitly-client package.
+# (c) Simone Fumagalli
+
+default:
+    context:
+        parameters:
+            access_token: you_bitly_access_token_here
