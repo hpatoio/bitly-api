@@ -514,8 +514,8 @@
         "LinkShares": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
-            "uri": "/v3/link/referring_domains",
-            "summary" : "Returns metrics about the pages referring click traffic to a single bitly link.",
+            "uri": "/v3/link/shares",
+            "summary" : "Returns metrics about a shares of a single link.",
              "parameters": {
                 "rollup": {
                     "location": "query",
@@ -618,14 +618,14 @@
         "UserPopular_links": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "/v3/user/popular_earned_by_shortens",
-            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers."
+            "uri": "/v3/user/popular_links",
+            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Note: This replaces the realtime_links endpoint."
         },
         "UserPopular_owned_by_clicks": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "/v3/user/popular_earned_by_shortens",
-            "summary" : "Returns the authenticated user's most-clicked bitly links (ordered by number of clicks) in a given time period. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "uri": "/v3/user/popular_owned_by_clicks",
+            "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by clicks. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers..",
             "parameters": {
                 "domain": {
                     "location": "query",
@@ -641,7 +641,7 @@
                 }
             }
         },
-        "UserPopular_owned_by_clicks": {
+        "UserPopular_owned_by_shortens": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
             "uri": "/v3/user/popular_earned_by_shortens",
@@ -661,11 +661,11 @@
                 }
             }
         },
-        "UserPopular_owned_by_clicks": {
+        "UserReferrers": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "/v3/user/popular_earned_by_shortens",
-            "summary" : "Returns the top links to your tracking domain (or domains) created by you or your subaccounts ordered by number of shortens. Users can register a tracking domain from their bitly settings page. This endpoint is only available to paid customers.",
+            "uri": "/v3/user/referrers",
+            "summary" : "Returns aggregate metrics about the pages referring click traffic to all of the authenticated user's bitly links.",
             "parameters": {
                 "rollup": {
                     "location": "query",
@@ -675,7 +675,7 @@
                 }
             }
         },
-        "UserPopular_owned_by_clicks": {
+        "UserReferring_domains": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
             "uri": "/v3/user/referring_domains",
@@ -706,7 +706,7 @@
         "UserShare_counts_by_share_type": {
             "extends" : "abstract.bitly.user",
             "httpMethod": "GET",
-            "uri": "/v3/user/share_counts",
+            "uri": "/v3/user/share_counts_by_share_type",
             "summary" : "Returns the number of shares by the authenticated user, broken down by share type (ie: twitter, facebook, email) in a given time period.",
             "parameters": {
                 "rollup": {
