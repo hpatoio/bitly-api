@@ -75,6 +75,19 @@ At the moment the library supports these APIs:
 
 - [bitly Data APIs](http://dev.bitly.com/data_apis.html)
 - [Links](http://dev.bitly.com/links.html)
+- [Link Metrics](dev.bitly.com/link_metrics.html)
+- [User Metrics](http://dev.bitly.com/user_metrics.html)
+
+## [Behat](http://behat.org)
+You need to copy Behat default configuration file and enter your ``access_token`` option there.
+```bash
+$ cp behat.yml.dist behat.yml
+```
+Now open `behat.yml` and change the string `your_bitly_access_token_here` with your access token.
+Run the suite typing
+```bash
+$ bin/behat
+```
 
 ## Integrations
 A Symfony2 bundle that integrate this library is available [here](https://github.com/hpatoio/BitlyBundle)
