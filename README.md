@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/hpatoio/bitly-api.png?branch=master)](https://travis-ci.org/hpatoio/bitly-api) 
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e/mini.png)](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hpatoio/bitly-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
