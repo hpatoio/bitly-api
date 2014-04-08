@@ -8,10 +8,10 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext extends BehatContext
 {
-    
+
     private $request_parameters;
     private $context_parameters;
-    
+
     /**
      * Initializes context.
      * Every scenario gets it's own context object.
@@ -24,7 +24,7 @@ class FeatureContext extends BehatContext
         $this->request_parameters = array();
         $this->client = new Bitly\Api\BitlyClient($parameters['access_token']);
     }
-    
+
     /**
      * @Given /^the following parameters:$/
      */
@@ -39,33 +39,32 @@ class FeatureContext extends BehatContext
             }
             $this->request_parameters[$parameterHash['name']] = $parameterHash['value'];
         }
-       
+
     }
-    
+
     /**
      * @When /^I request "([^"]*)"$/
      */
     public function iRequest($arg1)
     {
         $this->response = $this->client->$arg1($this->request_parameters);
-        
+
     }
-    
+
     /**
      * @Then /^the response has a "([^"]*)" key$/
      */
     public function theResponseHasKey($key)
     {
         $data = $this->response;
-        
+
         if (!empty($data)) {
             if (!isset($data[$key]  ))
                 throw new Exception("Key '".$key."' is not set!\n");
         } else {
             throw new Exception("Response was not JSON\n");
         }
-        
-    }
 
+    }
 
 }

@@ -13,9 +13,9 @@ class BitlyClient extends Client
 
    public function __construct($access_token)
    {
-      
+
         parent::__construct();
-        
+
         // Set the service description
         $this->setDescription(ServiceDescription::factory(__DIR__.'/Resources/bitly.json'));
 
