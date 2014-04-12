@@ -13,19 +13,21 @@ The biggest advantage in using Guzzle is that you can easely attach [Guzzle plug
 
 An [integration](#integrations) with Symfony2 is available as well.
 
+## Versions
+
+This project follow [semantic versioning](http://semver.org/). The stable version at the moment is `1.0` so you can write `~1.0` in your `composer.json`
+
 ## Installation
 
-The recommended way to install this bundle is through Composer.
+The recommended way to install this library is through Composer.
 For information about Composer and how to install in [look here](http://getcomposer.org/doc/00-intro.md).
-
 
 #### New project 
 
-From command line run 
-
+From the command line run 
 
 ```shell
-./composer create-project hpatoio/bitly-api your_prj_dir dev-master
+./composer create-project hpatoio/bitly-api your_prj_dir ~1.0
 ```
 
 #### Existing project
@@ -33,7 +35,7 @@ From command line run
 Move into your project directory and run
 
 ```shell
-./composer require hpatoio/bitly-api
+./composer require hpatoio/bitly-api ~1.0
 ```
 or add to your `composer.json`
 ```json
@@ -41,7 +43,7 @@ or add to your `composer.json`
     ...
     "require": {
         ...
-        "hpatoio/bitly-api": "dev-master"
+        "hpatoio/bitly-api": "~1.0"
     }
 }
 ```
