@@ -22,6 +22,9 @@
     "config": {
         "bin-dir": "bin/"
     },
+    "suggest" : {
+        "hpatoio/bitly-bundle" : "for integration with Symfony2 web framework"
+    },
     "autoload": {
         "psr-0": {
             "Bitly\\Api\\": "src/"
