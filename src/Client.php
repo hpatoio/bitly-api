@@ -1,14 +1,14 @@
 <?php
 
-namespace Bitly\Api;
+namespace Bitly;
 
-use Guzzle\Service\Client;
+use Guzzle\Service\Client as GuzzleClient;
 use Guzzle\Service\Description\ServiceDescription;
-use Bitly\Api\Plugin\TokenAuthPlugin;
-use Bitly\Api\Subscribers\ArrayAggregatorSubscriber;
-use Bitly\Api\Subscribers\ResponseStandardizationSubscriber;
+use Bitly\Plugin\TokenAuthPlugin;
+use Bitly\Subscribers\ArrayAggregatorSubscriber;
+use Bitly\Subscribers\ResponseStandardizationSubscriber;
 
-class BitlyClient extends Client
+class Client extends GuzzleClient
 {
 
    public function __construct($access_token)

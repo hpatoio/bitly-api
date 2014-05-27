@@ -2,7 +2,7 @@
     "name": "hpatoio/bitly-api",
     "type": "library",
     "description": "PHP Library based on Guzzle to consume Bit.ly API",
-    "keywords": ["Bitly", "api", "guzzle"],
+    "keywords": ["Bitly", "api", "guzzle", "behat"],
     "homepage": "http://www.iliveinperego.com/",
     "license": "CC-BY-SA-3.0",
     "authors": [
@@ -12,12 +12,12 @@
         }
     ],
     "require": {
-        "guzzle/guzzle": "3.8.*"
+        "guzzle/guzzle": "~3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "behat/behat": "2.4.*@stable",
-        "behat/mink": "1.4@stable"
+        "phpunit/phpunit": "~3.7",
+        "behat/behat": "~2.0",
+        "behat/mink": "~1.5"
     },
     "config": {
         "bin-dir": "bin/"
@@ -26,8 +26,8 @@
         "hpatoio/bitly-bundle" : "for integration with Symfony2 web framework"
     },
     "autoload": {
-        "psr-0": {
-            "Bitly\\Api\\": "src/"
+        "psr-4": {
+            "Bitly\\": "src/"
         }
     }
 }

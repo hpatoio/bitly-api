@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Bitly\Api;
+namespace Test\Bitly;
 
-class BitlyClientTest extends \Guzzle\Tests\GuzzleTestCase
+class ClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
 
     private $bitly_client;
@@ -12,7 +12,7 @@ class BitlyClientTest extends \Guzzle\Tests\GuzzleTestCase
 
     public function setup()
     {
-        $this->bitly_client = new \Bitly\Api\BitlyClient("non_existing_token_just_for_test");
+        $this->bitly_client = new \Bitly\Client("non_existing_token_just_for_test");
     }
 
     private function initBitlyClient($data)

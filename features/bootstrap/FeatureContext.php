@@ -22,7 +22,7 @@ class FeatureContext extends BehatContext
     {
         $this->context_parameters = $parameters;
         $this->request_parameters = array();
-        $this->client = new Bitly\Api\BitlyClient($parameters['access_token']);
+        $this->client = new Bitly\Client($parameters['access_token']);
     }
 
     /**

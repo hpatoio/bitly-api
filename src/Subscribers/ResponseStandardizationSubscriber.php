@@ -1,6 +1,6 @@
 <?php
 
-namespace Bitly\Api\Subscribers;
+namespace Bitly\Subscribers;
 
 use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
