@@ -1,6 +1,6 @@
 <?php
 
-namespace Bitly\Subscribers;
+namespace Hpatoio\Bitly\Subscribers;
 
 use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

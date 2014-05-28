@@ -1,12 +1,12 @@
 <?php
 
-namespace Bitly;
+namespace Hpatoio\Bitly;
 
 use Guzzle\Service\Client as GuzzleClient;
 use Guzzle\Service\Description\ServiceDescription;
-use Bitly\Plugin\TokenAuthPlugin;
-use Bitly\Subscribers\ArrayAggregatorSubscriber;
-use Bitly\Subscribers\ResponseStandardizationSubscriber;
+use Hpatoio\Bitly\Plugin\TokenAuthPlugin;
+use Hpatoio\Bitly\Subscribers\ArrayAggregatorSubscriber;
+use Hpatoio\Bitly\Subscribers\ResponseStandardizationSubscriber;
 
 class Client extends GuzzleClient
 {

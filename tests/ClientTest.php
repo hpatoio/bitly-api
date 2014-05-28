@@ -12,7 +12,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
 
     public function setup()
     {
-        $this->bitly_client = new \Bitly\Client("non_existing_token_just_for_test");
+        $this->bitly_client = new Hpatoio\Bitly\Client("non_existing_token_just_for_test");
     }
 
     private function initBitlyClient($data)
