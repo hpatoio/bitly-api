@@ -15,7 +15,10 @@ An [integration](#integrations) with Symfony2 is available as well.
 
 ## Versions
 
-This project follow [semantic versioning](http://semver.org/). The stable version at the moment is `1.0` so you can write `~1.0` in your `composer.json`
+* `master` follows _psr4_ standards and get `2.x` tags
+* `psr0` follow, of course, _psr0_ standards and get `1.x` tags - No new features only bugfix
+
+This project follow [semantic versioning](http://semver.org/). 
 
 ## Installation
 
@@ -27,7 +30,7 @@ For information about Composer and how to install in [look here](http://getcompo
 From the command line run 
 
 ```shell
-./composer create-project hpatoio/bitly-api your_prj_dir ~1.0
+./composer create-project hpatoio/bitly-api your_prj_dir ~2.0
 ```
 
 #### Existing project
@@ -35,7 +38,7 @@ From the command line run
 Move into your project directory and run
 
 ```shell
-./composer require hpatoio/bitly-api ~1.0
+./composer require hpatoio/bitly-api ~2.0
 ```
 or add to your `composer.json`
 ```json
@@ -43,7 +46,7 @@ or add to your `composer.json`
     ...
     "require": {
         ...
-        "hpatoio/bitly-api": "~1.0"
+        "hpatoio/bitly-api": "~2.0"
     }
 }
 ```
@@ -60,7 +63,7 @@ and run
 require_once 'vendor/autoload.php';
 
 # To find your bitly access token see here https://bitly.com/a/oauth_apps
-$my_bitly = new \Bitly\Api\BitlyClient("insert_here_your_bitly_api_access_token");
+$my_bitly = new \Hpatoio\Bitly\Client("insert_here_your_bitly_api_access_token");
 
 $response = $my_bitly->Highvalue(array("limit" => 3));
 
@@ -122,7 +125,7 @@ $adapter = new MonologLogAdapter($logger);
 $logPlugin = new LogPlugin($adapter, MessageFormatter::DEBUG_FORMAT);
 
 # To find your bitly access token see here https://bitly.com/a/oauth_apps
-$my_bitly = new \Bitly\Api\BitlyClient("your_bitly_access_token");
+$my_bitly = new \Hpatoio\Bitly\Client("your_bitly_access_token");
 $my_bitly->addSubscriber($logPlugin);
 
 $response = $my_bitly->Highvalue(array("limit" => 3));
