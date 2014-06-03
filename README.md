@@ -4,8 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e/mini.png)](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hpatoio/bitly-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+[![Project Status](http://stillmaintained.com/hpatoio/bitly-api.png)](http://stillmaintained.com/hpatoio/bitly-api)
 
 PHP Library based on Guzzle to consume Bit.ly API.
 
@@ -15,8 +14,8 @@ An [integration](#integrations) with Symfony2 is available as well.
 
 ## Versions
 
-* `master` follows _psr4_ standards and get `2.x` tags
-* `psr0` follow, of course, _psr0_ standards and get `1.x` tags - No new features only bugfix
+* branch `master` follows _psr4_ standards and get `2.x` tags
+* branch `psr0` follows, of course, _psr0_ standards and get `1.x` tags - No new features only bugfix
 
 This project follow [semantic versioning](http://semver.org/). 
 
