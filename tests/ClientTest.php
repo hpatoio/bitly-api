@@ -1,7 +1,5 @@
 <?php
 
-namespace Test\Bitly;
-
 class ClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
 

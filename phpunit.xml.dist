@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
-  <php>
-    <!-- <server name="SYMFONY" value="/path/to/symfony" /> -->
-  </php>
   <testsuites>
     <testsuite name="Hpatoio Bitly Client Test Suite">
-      <directory>./tests/Bitly/Api/Tests</directory>
+      <directory>./tests/</directory>
     </testsuite>
   </testsuites>
 </phpunit>
