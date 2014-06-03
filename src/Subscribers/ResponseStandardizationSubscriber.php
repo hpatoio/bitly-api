@@ -21,7 +21,7 @@ class ResponseStandardizationSubscriber implements EventSubscriberInterface
      *                     - Bitly always returns 200 as status code. This set the correct status code for responses.
      *                     - In case of a valid response from Bitly API we just return the 'data' section of the original response
      */
-    public function StandardizeResponse(Event $event)
+    public function standardizeResponse(Event $event)
     {
 
         $full_json_response = $event['response']->json();
