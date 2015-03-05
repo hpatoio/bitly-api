@@ -69,6 +69,30 @@ $response = $my_bitly->Highvalue(array("limit" => 3));
 print_r($response);
 
 ```
+## cURL options
+
+It might be that bit.ly is unreachable and you want to set a specific timeout.
+Just set the cURL timeout options in the client:
+
+```php
+
+$my_bitly = new \Hpatoio\Bitly\Client("insert_here_your_bitly_api_access_token");
+// set cURL timeout, you can specify any cURL options
+$my_bitly->setConfig(array(
+    'curl.options' => 
+        array(
+            CURLOPT_TIMEOUT => 2, 
+            CURLOPT_CONNECTTIMEOUT => 2
+        )
+    ));
+
+$response = $my_bitly->Highvalue(array("limit" => 3));
+
+print_r($response);
+
+```
+
+
 ## Methods names
 
 To get the method name remove "v3" from the API url and camelize the other words removing the slashes.
