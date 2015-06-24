@@ -29,7 +29,7 @@ For information about Composer and how to install in [look here](http://getcompo
 From the command line run 
 
 ```shell
-./composer create-project hpatoio/bitly-api your_prj_dir ~2.0
+./composer create-project hpatoio/bitly-api your_prj_dir '~2.0'
 ```
 
 #### Existing project
@@ -37,7 +37,7 @@ From the command line run
 Move into your project directory and run
 
 ```shell
-./composer require hpatoio/bitly-api ~2.0
+./composer require hpatoio/bitly-api '~2.0'
 ```
 or add to your `composer.json`
 ```json
