@@ -1,6 +1,6 @@
 # BitlyApi 
 
-[![Build Status](https://travis-ci.org/hpatoio/bitly-api.png?branch=master)](https://travis-ci.org/hpatoio/bitly-api) 
+[![Build Status](https://travis-ci.org/hpatoio/bitly-api.svg?branch=master)](https://travis-ci.org/hpatoio/bitly-api)
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e/mini.png)](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e)
