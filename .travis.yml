@@ -2,6 +2,10 @@ language: php
 
 sudo: false
 
+env:
+  global:
+    - secure: "jLeBWhlYZqc5aXAxtUd+xn4SN4sTacqs/mrrX//QMLld3JnXAuweFI1rlJseI0n3sCjqQeDiHlKtwqdnIMO+iRssBkBUQJsjMOZZZn2RVGqyCh+/Xa4lSEp3uLTdog0EoRS8XA7GraSPC/kT1swANkgJhRI/EdwvpQdcpiFROdk="
+
 php:
   - 5.3
   - 5.4
@@ -13,6 +17,9 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+before_install:
+  - composer config github-oauth.github.com $GITHUB_TOKEN
+  
 install:
   - composer install --prefer-dist
 
