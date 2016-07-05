@@ -15,7 +15,7 @@
         "guzzlehttp/guzzle": "~3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~3.7",
+        "phpunit/phpunit": "~4.0",
         "behat/behat": "~2.0",
         "behat/mink": "~1.5"
     },
