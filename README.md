@@ -4,7 +4,6 @@
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e/mini.png)](https://insight.sensiolabs.com/projects/8d861d8b-3529-493d-b801-1a11a098492e)
-[![Project Status](http://stillmaintained.com/hpatoio/bitly-api.png)](http://stillmaintained.com/hpatoio/bitly-api)
 
 PHP Library based on Guzzle to consume Bit.ly API.
 
