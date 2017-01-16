@@ -373,6 +373,7 @@
             }
         },
         "abstract.bitly.link_metrics": {
+            "extends": "abstract.bitly",
             "parameters": {
                 "link": {
                     "location": "query",
@@ -384,19 +385,19 @@
                     "location": "query",
                     "type" : "string",
                     "description": "minute, hour, day, week or month, default: day | Note: when unit is minute the maximum value for units is 60.",
-                    "required": true
+                    "required": false
                 },
                 "units": {
                     "location": "query",
                     "type" : "string",
                     "description": "an integer representing the time units to query data for. Pass -1 to return all units of time.",
-                    "required": true
+                    "required": false
                 },
                 "timezone": {
                     "location": "query",
                     "type" : "string",
                     "description": "An integer hour offset from UTC (-14 to 14), or a timezone string default: America/New_York.",
-                    "required": true
+                    "required": false
                 },
                 "limit": {
                     "location": "query",
@@ -413,7 +414,7 @@
             }
         },
         "LinkClicks": {
-            "extends" : "abstract.bitly.link",
+            "extends" : "abstract.bitly.link_metrics",
             "httpMethod": "GET",
             "uri": "/v3/link/clicks",
             "summary" : "Returns the number of clicks on a single bitly link.",
@@ -427,7 +428,7 @@
             }
         },
         "LinkCountries": {
-            "extends" : "abstract.bitly.link",
+            "extends" : "abstract.bitly.link_metrics",
             "httpMethod": "GET",
             "uri": "/v3/link/countries",
             "summary" : "Returns metrics about the countries referring click traffic to a single bitly link."
@@ -466,7 +467,7 @@
                     "required": false
                 }
             }
-        }, 
+        },
         "LinkEncoders": {
             "extends" : "abstract.bitly.link_encoders",
             "httpMethod": "GET",
@@ -494,36 +495,22 @@
             }
         },
         "LinkReferrers": {
-            "extends" : "abstract.bitly.link",
+            "extends" : "abstract.bitly.link_metrics",
             "httpMethod": "GET",
             "uri": "/v3/link/referrers",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
         },
         "LinkReferrers_by_domain": {
-            "extends" : "abstract.bitly.link",
+            "extends" : "abstract.bitly.link_metrics",
             "httpMethod": "GET",
             "uri": "/v3/link/referrers_by_domain",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
         },
         "LinkReferring_domains": {
-            "extends" : "abstract.bitly.link",
+            "extends" : "abstract.bitly.link_metrics",
             "httpMethod": "GET",
             "uri": "/v3/link/referring_domains",
             "summary" : "Returns metrics about the pages referring click traffic to a single bitly link."
-        },
-        "LinkShares": {
-            "extends" : "abstract.bitly.link",
-            "httpMethod": "GET",
-            "uri": "/v3/link/shares",
-            "summary" : "Returns metrics about a shares of a single link.",
-             "parameters": {
-                "rollup": {
-                    "location": "query",
-                    "type" : "string",
-                    "description": "true or false. Return data for multiple units rolled up to a single result instead of a separate value for each period of time.",
-                    "required": true
-                }
-            }
         },
         "abstract.bitly.user": {
             "parameters": {
