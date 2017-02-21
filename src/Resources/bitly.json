@@ -369,6 +369,12 @@
                     "type" : "string",
                     "description": "The bitly short URL the specified keyword will map to",
                     "required": true
+                },
+                "overwrite" : {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - Boolean true or false indicating whether or not to overwrite existing entry if one exists (defaults to false).",
+                    "required": false
                 }
             }
         },
