@@ -152,12 +152,6 @@
             "uri": "/v3/link/social",
             "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist."
         },
-        "LinkSocial": {
-            "extends" : "abstract.bitly.link",
-            "httpMethod": "GET",
-            "uri": "/v3/link/social",
-            "summary" : "Returns the \"social score\" for a specified bitly link. Note that the social score are highly dependent upon activity (clicks) occurring on the bitly link. If there have not been clicks on a bitly link within the last 24 hours, it is possible a social score for that link does not exist."
-        },
         "LinkLocation": {
             "extends" : "abstract.bitly.link",
             "httpMethod": "GET",
@@ -369,6 +363,12 @@
                     "type" : "string",
                     "description": "The bitly short URL the specified keyword will map to",
                     "required": true
+                },
+                "overwrite" : {
+                    "location": "query",
+                    "type" : "string",
+                    "description": "Optional - Boolean true or false indicating whether or not to overwrite existing entry if one exists (defaults to false).",
+                    "required": false
                 }
             }
         },
