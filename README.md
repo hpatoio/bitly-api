@@ -1,5 +1,7 @@
 # BitlyApi 
 
+## This package is not maintained 
+
 [![Build Status](https://travis-ci.org/hpatoio/bitly-api.svg?branch=master)](https://travis-ci.org/hpatoio/bitly-api)
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
 [![Latest Stable Version](https://poser.pugx.org/hpatoio/bitly-api/v/stable.png)](https://packagist.org/packages/hpatoio/bitly-api)
