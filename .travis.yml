@@ -7,12 +7,11 @@ env:
     - secure: "jLeBWhlYZqc5aXAxtUd+xn4SN4sTacqs/mrrX//QMLld3JnXAuweFI1rlJseI0n3sCjqQeDiHlKtwqdnIMO+iRssBkBUQJsjMOZZZn2RVGqyCh+/Xa4lSEp3uLTdog0EoRS8XA7GraSPC/kT1swANkgJhRI/EdwvpQdcpiFROdk="
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
   - 7.0
-  - hhvm
+  - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
 
 cache:
   directories:
