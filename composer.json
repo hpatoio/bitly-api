@@ -1,7 +1,7 @@
 {
     "name": "hpatoio/bitly-api",
     "type": "library",
-    "description": "PHP Library based on Guzzle to consume Bit.ly API",
+    "description": "PHP Library based on Guzzle to consume Bit.ly API | This library is deprecated you might use https://github.com/phplicengine/bitly",
     "keywords": ["Bitly", "api", "guzzle", "behat"],
     "homepage": "http://www.iliveinperego.com/",
     "license": "CC-BY-SA-3.0",
@@ -23,7 +23,8 @@
         "bin-dir": "bin/"
     },
     "suggest" : {
-        "hpatoio/bitly-bundle" : "for integration with Symfony2 web framework"
+        "hpatoio/bitly-bundle" : "for integration with Symfony2 web framework",
+        "phplicengine/bitly": "The package you have installed, hpatoio/bitly-api, is not maintained anymore. You might use https://github.com/phplicengine/bitly"
     },
     "autoload": {
         "psr-4": {

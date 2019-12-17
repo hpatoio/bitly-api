@@ -1,6 +1,7 @@
 # BitlyApi 
 
-## This package is not maintained 
+## This package is not maintained
+Check [phplicengine/bitly](https://packagist.org/packages/phplicengine/bitly) as a possible replacement.
 
 [![Build Status](https://travis-ci.org/hpatoio/bitly-api.svg?branch=master)](https://travis-ci.org/hpatoio/bitly-api)
 [![Total Downloads](https://poser.pugx.org/hpatoio/bitly-api/downloads.png)](https://packagist.org/packages/hpatoio/bitly-api)
